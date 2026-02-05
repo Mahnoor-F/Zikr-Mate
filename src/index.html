@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZikrMate</title>
+    <link rel="stylesheet" href="./output.css">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="./script.js" defer></script>
+</head>
+<body class="bg-[var(--col1)] min-h-screen text-[var(--col2)]">
+    <div class="w-full h-full">
+       <div class="flex items-center justify-between px-4 sm:px-12 py-8 text-3xl md:text-4xl font-semibold">
+            <h1>
+                ZikrMate
+            </h1>
+            <h1>
+                (ذکرمیٹ)
+            </h1>
+       </div>
+       <hr>
+       <br>
+
+       <div class="flex items-center justify-between px-4 sm:px-12 pt-2">
+
+                <div class="flex items-center justify-center">
+                    <label class="inline-flex items-center cursor-pointer">
+                        <input id="themeToggle" type="checkbox" value="" class="sr-only peer">
+                        <div class="relative w-11 h-6 bg-[var(--col1)] peer-focus:outline-none rounded-full peer dark:bg-[var(--col2)] peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-[var(--col1)] 
+                        peer-checked:after:bg-[var(--col1)] after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-[var(--col1)] after:border-[var(--col2)] after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-[var(--col1)] dark:peer-checked:bg-[var(--col2)]"></div>
+                        <span class="ms-3 text-sm font-medium text-[var(--black)]" id="moods">Green Mood</span>
+                    </label>
+            </div>
+
+            <div class="flex items-center justify-end cursor-pointer ms-3 text-sm font-medium text-[var(--black)]" id="reset_all" title="Reset All"><i class="fa-solid fa-rotate mr-3 text-3xl md:text-4xl"></i> Reset All</div>
+
+       </div>
+       <div class="">
+        <div class="felx items-start justify-start">
+            <h2 class="px-4 sm:px-12 py-6 text-xl md:text-3xl font-semibold">Select What You Pray And Count :</h2>
+        </div>
+            <div class="grid grid-cols-2 px-4 sm:px-12 pt-4 sm:py-2 text-xl md:text-3xl font-semibold gap-x-28 gap-y-4 w-full md:w-auto">
+                    <div class="flex items-center justify-between order-2">
+                        <label for="zikr_1" class="text-right w-full pr-3 cursor-pointer">سبحان اللہ</label>
+                        <input type="radio" id="zikr_1" name="zikr" class="w-5 h-5 cursor-pointer" checked>
+                    </div>
+                    <div class="flex items-center justify-between order-1">
+                        <label for="zikr_2" class="text-right w-full pr-3 cursor-pointer">الحمد للہ</label>
+                        <input type="radio" id="zikr_2" name="zikr" class="w-5 h-5 cursor-pointer">
+                    </div>
+                    <div class="flex items-center justify-between order-4">
+                        <label for="zikr_3" class="text-right w-full pr-3 cursor-pointer">اللہ اکبر</label>
+                        <input type="radio" id="zikr_3" name="zikr" class="w-5 h-5 cursor-pointer">
+                    </div>
+                    <div class="flex items-center justify-between order-3">
+                        <label for="zikr_4" class="text-right w-full pr-3 cursor-pointer">استغفر اللہ</label>
+                        <input type="radio" id="zikr_4" name="zikr" class="w-5 h-5 cursor-pointer">
+                    </div>
+            </div>
+       </div>
+       
+        <div class="flex items-center justify-between flex-row-reverse flex-wrap pt-10 text-xl md:text-3xl font-semibold gap-y-4">
+                <div class="order-1 w-1/2 md:w-1/4 text-right flex items-center justify-between flex-row-reverse p-4 sm:p-6 border">
+                    <h2>سبحان اللہ</h2>
+                    <label id="zikr_1_count">0</label>
+                </div>
+                <div class="order-2 w-1/2 md:w-1/4 text-right flex items-center justify-between flex-row-reverse p-4 sm:p-6 border">
+                    <h2>الحمد للہ</h2>
+                    <label id="zikr_2_count">0</label>
+                </div>
+                <div class="order-3 w-1/2 md:w-1/4 text-right flex items-center justify-between flex-row-reverse p-4 sm:p-6 border">
+                    <h2>اللہ اکبر</h2>
+                    <label id="zikr_3_count">0</label>
+                </div>
+                <div class="order-4 w-1/2 md:w-1/4 text-right flex items-center justify-between flex-row-reverse p-4 sm:p-6 border">
+                    <h2>استغفر اللہ</h2>
+                    <label id="zikr_4_count">0</label>
+                </div>
+        </div>
+
+       <div class="flex items-center justify-center flex-col">
+            <div class="flex items-center justify-center text-[12rem] md:text-[10rem] font-medium">
+                <h1 id="count">0</h1>
+            </div>
+            <div class="flex items-center justify-center flex-col gap-6 pb-12">
+                <div class="flex items-center justify-center gap-6 flex-col">
+                    <button id="increase" class="bubbles w-42 h-42 rounded-full"><span class="text text-3xl">Tap</span></button>
+                </div>
+                <button id="reset" class="bubbles w-[11em] md:w-[10em] h-[3.5em] rounded-4xl"><span class="text">Reset <i class="fa-solid fa-arrow-rotate-left "></i></span></i></button>
+            </div>
+       </div>
+
+    </div>
+    
+</body>
+</html>
